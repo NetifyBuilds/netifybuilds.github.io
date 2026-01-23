@@ -4,9 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NetifyBuilds - Never Miss A Call Again</title>
-    <link rel="stylesheet" href="tooplate-strategic-style.css">
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        /* ----------------- Dark Mode Palette ----------------- */
+        :root {
+            --primary-bg: #1A1F36;      /* Dark Blue Background */
+            --secondary-bg: #4E91FC;    /* Light Blue Accent Background */
+            --accent-color: #00FFD1;    /* Cyan for highlights */
+            --text-color: #FFFFFF;       /* White text */
+            --subtext-color: #CCCCCC;    /* Lighter text for paragraphs */
+            --button-bg: #4E91FC;        /* Buttons */
+            --button-hover: #00FFD1;     /* Button hover */
+            --section-bg: #212740;       /* Slightly lighter section bg */
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--button-hover);
+        }
+
+        nav.navbar {
+            background-color: var(--section-bg);
+        }
+
+        .nav-links li a {
+            color: var(--text-color);
+        }
+
+        .hero {
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+        }
+
+        .cta-button {
+            background-color: var(--button-bg);
+            color: var(--text-color);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--button-hover);
+        }
+
+        section {
+            padding: 60px 20px;
+        }
+
+        .services-container, .about-section, .team, .testimonials, .contact {
+            background-color: var(--section-bg);
+            border-radius: 10px;
+            margin: 20px auto;
+            padding: 40px;
+            max-width: 1200px;
+        }
+
+        h2.section-title {
+            color: var(--accent-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        p {
+            color: var(--subtext-color);
+        }
+
+        .service-features li {
+            color: var(--text-color);
+        }
+
+        .team-member, .testimonial {
+            background-color: var(--primary-bg);
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        .member-info h3, .testimonial h4 {
+            color: var(--accent-color);
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form button {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .contact-form input, .contact-form textarea {
+            background-color: #2C334F;
+            color: var(--text-color);
+        }
+
+        .contact-form button {
+            background-color: var(--button-bg);
+            color: var(--text-color);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--button-hover);
+        }
+
+        footer.footer {
+            background-color: var(--section-bg);
+            text-align: center;
+            padding: 20px;
+            color: var(--subtext-color);
+        }
+
+        img {
+            border-radius: 10px;
+            max-width: 100%;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -24,212 +157,97 @@
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="geometric-shapes">
-            <div class="geo-shape"></div>
-            <div class="geo-shape"></div>
-            <div class="geo-shape"></div>
-            <div class="geo-shape"></div>
-            <div class="geo-shape"></div>
-        </div>
-        <div class="hero-content">
-            <h1 id="hero-headline">24/7 AI Receptionist</h1>
-            <p id="hero-paragraph">Never Miss Another Call With NetifyBuilds.</p>
-            <a href="#services" class="cta-button">Begin Your Journey</a>
-        </div>
+        <h1>24/7 AI Receptionist</h1>
+        <p>Never Miss Another Call With NetifyBuilds.</p>
+        <a href="#services" class="cta-button">Begin Your Journey</a>
+        <img src="https://images.unsplash.com/photo-1581090700227-82e31c3d87c6?crop=entropy&cs=tinysrgb&fit=max&h=400&w=800" alt="AI receptionist" style="margin-top:20px;">
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
-        <div class="section services-container">
-            <h2 class="section-title fade-in">Our Strategic Arsenal</h2>
-            <div class="services-layout">
-                <div class="services-content">
-                    <!-- Service Tabs Same as Original Template -->
-                    <div class="service-details active" data-service="strategy">
-                        <h3>AI Call Handling</h3>
-                        <div class="service-subtitle">Professional 24/7 Receptionist Services</div>
-                        <p>NetifyBuilds AI receptionist answers every call professionally, ensuring no opportunity is missed.</p>
-                        <ul class="service-features">
-                            <li><span class="feature-check">✓</span> Answer calls instantly</li>
-                            <li><span class="feature-check">✓</span> Schedule appointments automatically</li>
-                            <li><span class="feature-check">✓</span> Provide personalized customer support</li>
-                            <li><span class="feature-check">✓</span> Reduce missed calls and lost leads</li>
-                        </ul>
-                    </div>
-                    <div class="service-details" data-service="digital">
-                        <h3>Customer Support</h3>
-                        <div class="service-subtitle">Efficient 24/7 Assistance</div>
-                        <p>Provide instant support and accurate information to your clients without hiring extra staff.</p>
-                        <ul class="service-features">
-                            <li><span class="feature-check">✓</span> Answer FAQs quickly</li>
-                            <li><span class="feature-check">✓</span> Guide customers professionally</li>
-                            <li><span class="feature-check">✓</span> Free up human staff for critical tasks</li>
-                            <li><span class="feature-check">✓</span> Seamless AI-human handoff when needed</li>
-                        </ul>
-                    </div>
-                    <div class="service-details" data-service="performance">
-                        <h3>Appointment Scheduling</h3>
-                        <div class="service-subtitle">Automated Scheduling & Reminders</div>
-                        <p>Never miss a booking — our AI handles scheduling efficiently for you and your team.</p>
-                        <ul class="service-features">
-                            <li><span class="feature-check">✓</span> Auto-book meetings</li>
-                            <li><span class="feature-check">✓</span> Send confirmation emails</li>
-                            <li><span class="feature-check">✓</span> Reduce no-shows</li>
-                            <li><span class="feature-check">✓</span> Sync with calendars automatically</li>
-                        </ul>
-                    </div>
-                    <!-- Add other original service tabs here if desired -->
-                </div>
-                <div class="services-tabs">
-                    <div class="service-tab active" data-target="strategy">
-                        <div class="tab-icon">📞</div>
-                        <div class="tab-content">
-                            <h4>AI Call Handling</h4>
-                            <p>Professional 24/7 receptionist services for your business</p>
-                        </div>
-                    </div>
-                    <div class="service-tab" data-target="digital">
-                        <div class="tab-icon">💬</div>
-                        <div class="tab-content">
-                            <h4>Customer Support</h4>
-                            <p>Instant support without extra staff</p>
-                        </div>
-                    </div>
-                    <div class="service-tab" data-target="performance">
-                        <div class="tab-icon">📅</div>
-                        <div class="tab-content">
-                            <h4>Appointment Scheduling</h4>
-                            <p>Automated bookings and reminders</p>
-                        </div>
-                    </div>
-                </div>
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-container">
+            <div class="service-details">
+                <h3>AI Call Handling</h3>
+                <p>Professional 24/7 receptionist services answering calls instantly.</p>
+                <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4431d0?crop=entropy&cs=tinysrgb&fit=max&h=200&w=400" alt="Call Handling">
+            </div>
+            <div class="service-details">
+                <h3>Customer Support</h3>
+                <p>Instant support without hiring extra staff. Enhance customer satisfaction.</p>
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&h=200&w=400" alt="Customer Support">
+            </div>
+            <div class="service-details">
+                <h3>Appointment Scheduling</h3>
+                <p>Automated bookings and reminders to never miss a client opportunity.</p>
+                <img src="https://images.unsplash.com/photo-1581091215361-5ecff5ed75d0?crop=entropy&cs=tinysrgb&fit=max&h=200&w=400" alt="Scheduling">
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about-section">
-        <div class="section about fade-in">
-            <div class="about-content">
-                <h2>About NetifyBuilds</h2>
-                <p>NetifyBuilds ensures businesses never miss a call. Our AI receptionist handles customer calls seamlessly 24/7, providing professional support and personalized attention.</p>
-            </div>
-        </div>
+        <h2>About NetifyBuilds</h2>
+        <p>NetifyBuilds ensures businesses never miss a call. Our AI receptionist handles customer calls seamlessly 24/7, providing professional support and personalized attention.</p>
+        <img src="https://images.unsplash.com/photo-1581091215361-5ecff5ed75d0?crop=entropy&cs=tinysrgb&fit=max&h=300&w=600" alt="Business">
     </section>
 
     <!-- Team Section -->
     <section id="team" class="team">
-        <div class="section">
-            <h2 class="section-title fade-in">Strategic Visionaries</h2>
-            <div class="team-grid">
-                <div class="team-member fade-in">
-                    <div class="member-card">
-                        <div class="member-avatar">
-                            <img src="images/team-member-01.jpg" alt="Andrew" />
-                        </div>
-                        <div class="member-info">
-                            <h3>Andrew</h3>
-                            <div class="member-role">Co-Founder & CEO</div>
-                            <p>Leading NetifyBuilds to transform business communication with AI.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-card">
-                        <div class="member-avatar">
-                            <img src="images/team-member-02.jpg" alt="Eli" />
-                        </div>
-                        <div class="member-info">
-                            <h3>Eli</h3>
-                            <div class="member-role">Co-Founder & CTO</div>
-                            <p>Architect of the AI receptionist system and seamless automation.</p>
-                        </div>
-                    </div>
-                </div>
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1603415526960-f8f15a7f0a90?crop=entropy&cs=tinysrgb&fit=max&h=300&w=300" alt="Andrew">
+                <h3>Andrew</h3>
+                <p>Co-Founder & CEO – Leading NetifyBuilds to transform business communication with AI.</p>
+            </div>
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a3?crop=entropy&cs=tinysrgb&fit=max&h=300&w=300" alt="Eli">
+                <h3>Eli</h3>
+                <p>Co-Founder & CTO – Architect of the AI receptionist system and seamless automation.</p>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
-        <div class="section">
-            <h2 class="section-title fade-in">Client Feedback</h2>
-            <div class="testimonials-container">
-                <div class="testimonial fade-in">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">“NetifyBuilds completely changed how we handle customer calls — professional and efficient 24/7. Highly recommend!”</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">AB</div>
-                            <div class="author-info">
-                                <h4>Alice Brown</h4>
-                                <span>CEO, FastTech Solutions</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial fade-in">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">“Our customers love the AI receptionist — it’s like having an extra team member who never sleeps.”</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">JM</div>
-                            <div class="author-info">
-                                <h4>John Miller</h4>
-                                <span>Founder, QuickServe LLC</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <h2 class="section-title">Client Feedback</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <p>“NetifyBuilds completely changed how we handle customer calls — professional and efficient 24/7. Highly recommend!”</p>
+                <h4>Alice Brown, CEO, FastTech Solutions</h4>
+            </div>
+            <div class="testimonial">
+                <p>“Our customers love the AI receptionist — it’s like having an extra team member who never sleeps.”</p>
+                <h4>John Miller, Founder, QuickServe LLC</h4>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="section">
-            <h2 class="section-title fade-in">Get in Touch</h2>
-            <p>Ready to set up your AI receptionist? Contact us today!</p>
-            <form class="contact-form fade-in" action="https://formspree.io/f/mwvlnpdr" method="POST">
-                <div class="form-group">
-                    <input type="text" name="first-name" placeholder="First Name" required>
-                    <input type="text" name="last-name" placeholder="Last Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="tel" name="phone" placeholder="Phone Number">
-                </div>
-                <input type="text" name="business-name" placeholder="Business Name">
-                <textarea name="message" placeholder="Describe your business needs..." required></textarea>
-                <button type="submit" class="submit-btn">Start Your AI Receptionist</button>
-            </form>
-        </div>
+        <h2>Contact Us</h2>
+        <p>Ready to set up your AI receptionist? Contact us today!</p>
+        <form class="contact-form" action="https://formspree.io/f/mwvlnpdr" method="POST">
+            <input type="text" name="first-name" placeholder="First Name" required>
+            <input type="text" name="last-name" placeholder="Last Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number">
+            <input type="text" name="business-name" placeholder="Business Name">
+            <textarea name="message" placeholder="Describe your business needs..." required></textarea>
+            <button type="submit">Start Your AI Receptionist</button>
+        </form>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#terms">Terms of Service</a>
-            </div>
-            <div class="footer-copyright">
-                © 2026 NetifyBuilds. All rights reserved.
-            </div>
-            <div class="footer-design">
-                Design: <a href="https://www.tooplate.com" target="_blank">Tooplate</a>
-            </div>
-        </div>
+        <p>© 2026 NetifyBuilds. All rights reserved.</p>
     </footer>
-
-<script src="tooplate-strategic-scripts.js"></script>
 </body>
 </html>
+
