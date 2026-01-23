@@ -4,7 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NetifyBuilds - Never Miss A Call Again</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="tooplate-strategic-style.css">
+    <style>
+        /* General Body and Fonts */
+        body { font-family: 'Open Sans', sans-serif; color: #111827; background: #F9FAFB; margin:0; padding:0;}
+        h1,h2,h3,h4,h5,h6 { font-family: 'Montserrat', sans-serif; color: #1D4ED8; }
+        a { text-decoration: none; }
+        
+        /* Navbar */
+        .navbar { background-color: #0F172A; padding: 15px 20px; }
+        .nav-links li { display: inline-block; margin: 0 15px; }
+        .nav-links li a { color: white; font-weight: bold; }
+        .logo span { color:white; font-weight:bold; font-size:1.5rem; }
+        .mobile-menu span { background:white; display:block; margin:5px 0; height:3px; width:25px; }
+
+        /* Hero Section */
+        .hero { text-align:center; padding:120px 20px; background:#1D4ED8; color:white; }
+        .hero h1 { font-size:3rem; margin-bottom:20px; }
+        .hero p { font-size:1.25rem; margin-bottom:30px; }
+        .cta-button { background-color:#FBBF24; color:#111827; padding:15px 30px; border-radius:8px; font-weight:bold; transition:all 0.3s; }
+        .cta-button:hover { background-color:white; color:#1D4ED8; }
+
+        /* Sections */
+        section { padding:80px 20px; }
+        .section-title { text-align:center; margin-bottom:50px; font-size:2.5rem; }
+
+        /* Services */
+        .service-details { background:white; border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+        .service-features li { margin-bottom:10px; }
+
+        /* Team Section */
+        .team-grid { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; }
+        .team-member { max-width:300px; text-align:center; background:white; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .team-member img { border-radius:12px; width:100%; height:auto; }
+
+        /* Testimonials */
+        .testimonials-container { display:flex; flex-direction:column; gap:20px; align-items:center; }
+        .testimonial { background:#EFF6FF; border-radius:12px; padding:30px; max-width:600px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .testimonial-text { font-style:italic; margin-bottom:15px; }
+
+        /* Contact Form */
+        .contact-form { max-width:600px; margin:0 auto; display:flex; flex-direction:column; gap:15px; }
+        .contact-form input, .contact-form textarea { width:100%; padding:12px; border-radius:6px; border:1px solid #D1D5DB; }
+        .submit-btn { background-color:#1D4ED8; color:white; padding:12px 20px; border-radius:8px; font-weight:bold; transition:0.3s; cursor:pointer; }
+        .submit-btn:hover { background-color:#FBBF24; color:#111827; }
+
+        /* Footer */
+        .footer { background:#0F172A; color:white; padding:20px; text-align:center; }
+        .footer a { color:#FBBF24; margin:0 10px; }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -22,243 +71,100 @@
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="geometric-shapes">
-            <div class="geo-shape"></div>
-            <div class="geo-shape"></div>
-            <div class="geo-shape"></div>
-            <div class="geo-shape"></div>
-            <div class="geo-shape"></div>
-        </div>
-        <div class="hero-content">
-            <h1 id="hero-headline">24/7 AI Receptionist</h1>
-            <p id="hero-paragraph">Never Miss Another Call With NetifyBuilds. Professional AI front-desk solutions for your business, always available.</p>
-            <a href="#services" class="cta-button">Get Started</a>
-        </div>
+        <h1>24/7 AI Receptionist</h1>
+        <p>Never Miss Another Call — Professional, Efficient, and Always Available.</p>
+        <a href="#contact" class="cta-button">Get Started Today</a>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
-        <div class="section services-container">
-            <h2 class="section-title fade-in">Our AI Receptionist Services</h2>
-            <div class="services-layout">
-                <div class="services-content">
-                    <div class="service-details active" data-service="calls">
-                        <h3>Call Answering</h3>
-                        <div class="service-subtitle">Never Miss Another Client</div>
-                        <p>Our AI receptionist answers calls instantly, captures important details, and forwards messages to you, so no opportunity is lost.</p>
-                        <ul class="service-features">
-                            <li><span class="feature-check">✓</span> 24/7 Availability</li>
-                            <li><span class="feature-check">✓</span> Personalized Client Greeting</li>
-                            <li><span class="feature-check">✓</span> Call Logging & Message Delivery</li>
-                            <li><span class="feature-check">✓</span> Fully Scalable for Multiple Lines</li>
-                        </ul>
-                    </div>
-                    <div class="service-details" data-service="appointments">
-                        <h3>Appointment Scheduling</h3>
-                        <div class="service-subtitle">Automated Calendar Management</div>
-                        <p>Clients can book appointments directly with the AI receptionist, synced to your calendar, reducing missed opportunities and administrative workload.</p>
-                        <ul class="service-features">
-                            <li><span class="feature-check">✓</span> Automated Booking</li>
-                            <li><span class="feature-check">✓</span> Reminders & Confirmations</li>
-                            <li><span class="feature-check">✓</span> Customizable Availability</li>
-                            <li><span class="feature-check">✓</span> Integrates with Google Calendar</li>
-                        </ul>
-                    </div>
-                    <div class="service-details" data-service="leads">
-                        <h3>Lead Capture</h3>
-                        <div class="service-subtitle">Turn Every Call into a Potential Client</div>
-                        <p>Our AI captures essential client information and organizes leads efficiently, giving your business more opportunities to grow.</p>
-                        <ul class="service-features">
-                            <li><span class="feature-check">✓</span> Collects Contact Info & Details</li>
-                            <li><span class="feature-check">✓</span> CRM Integration Ready</li>
-                            <li><span class="feature-check">✓</span> Automated Follow-Up Triggers</li>
-                            <li><span class="feature-check">✓</span> Organized Reports</li>
-                        </ul>
-                    </div>
-                </div>
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-container" style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+            <div class="service-details">
+                <h3>AI Call Handling</h3>
+                <p>Our AI receptionist answers every call professionally, ensuring no opportunity is missed.</p>
+            </div>
+            <div class="service-details">
+                <h3>Customer Support</h3>
+                <p>Provide instant support and accurate information to your clients 24/7 without human staff.</p>
+            </div>
+            <div class="service-details">
+                <h3>Appointment Scheduling</h3>
+                <p>Seamlessly schedule meetings, calls, and appointments automatically for your business.</p>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about-section">
-        <div class="section about fade-in">
-            <div class="about-content">
-                <div class="highlight">AI Front-Desk Solutions</div>
-                <h2>NetifyBuilds Makes Your Business Smarter</h2>
-                <p>We provide AI receptionist services designed to help businesses never miss a call, increase client satisfaction, and save time. Our AI works 24/7 so you can focus on growing your business.</p>
-                <div class="about-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">🎯</div>
-                        <div class="feature-text">Always-On Availability</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">📊</div>
-                        <div class="feature-text">Lead Capture & Reporting</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">⚡</div>
-                        <div class="feature-text">Easy Calendar Integration</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🚀</div>
-                        <div class="feature-text">Professional & Personalized Experience</div>
-                    </div>
-                </div>
-                <p>Contact us today at <a href="mailto:contact@netifybuilds.com">contact@netifybuilds.com</a> to start improving your customer communications.</p>
-            </div>
-            <div class="about-visual">
-                <div class="about-image">
-                    <div class="visual-shapes">
-                        <div class="visual-shape"></div>
-                        <div class="visual-shape"></div>
-                        <div class="visual-shape"></div>
-                    </div>
-                    <img src="images/about-image-01.jpg" alt="NetifyBuilds AI Receptionist">
-                </div>
-            </div>
-        </div>
+        <h2 class="section-title">About NetifyBuilds</h2>
+        <p style="max-width:700px; margin:0 auto; text-align:center;">
+            NetifyBuilds ensures businesses never miss a call. Our AI-powered receptionists handle customer calls seamlessly 24/7, providing professional support and personalized attention. Focus on growth while we handle your front desk.
+        </p>
     </section>
 
     <!-- Team Section -->
     <section id="team" class="team">
-        <div class="section">
-            <h2 class="section-title fade-in">Meet the NetifyBuilds Team</h2>
-            <div class="team-grid">
-                <div class="team-member fade-in">
-                    <div class="member-card">
-                        <div class="member-avatar">
-                            <img src="images/team-member-01.jpg" alt="Michael Thompson" />
-                        </div>
-                        <div class="member-info">
-                            <h3>Michael Thompson</h3>
-                            <div class="member-role">CEO & AI Strategist</div>
-                            <p>Passionate about helping businesses scale through intelligent AI solutions. Michael oversees all product innovation and strategy at NetifyBuilds.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-card">
-                        <div class="member-avatar">
-                            <img src="images/team-member-02.jpg" alt="Sarah Chen" />
-                        </div>
-                        <div class="member-info">
-                            <h3>Sarah Chen</h3>
-                            <div class="member-role">Head of Operations</div>
-                            <p>Expert in client onboarding and AI workflow optimization. Sarah ensures every business gets the full power of our AI receptionist.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-card">
-                        <div class="member-avatar">
-                            <img src="images/team-member-03.jpg" alt="David Rodriguez" />
-                        </div>
-                        <div class="member-info">
-                            <h3>David Rodriguez</h3>
-                            <div class="member-role">AI Engineer</div>
-                            <p>Builds and maintains the AI systems that power NetifyBuilds. David makes sure your AI receptionist is smart, reliable, and professional.</p>
-                        </div>
-                    </div>
-                </div>
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="images/team-member-01.jpg" alt="Andrew" />
+                <h3>Andrew</h3>
+                <p>Co-Founder & CEO – Leading NetifyBuilds to transform business communication with AI.</p>
+            </div>
+            <div class="team-member">
+                <img src="images/team-member-02.jpg" alt="Eli" />
+                <h3>Eli</h3>
+                <p>Co-Founder & CTO – Architect of the AI receptionist system and seamless automation.</p>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
-        <div class="section">
-            <h2 class="section-title fade-in">What Our Clients Say</h2>
-            <div class="testimonials-container">
-                <div class="testimonial fade-in">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"NetifyBuilds transformed our customer communication. We never miss a call and our leads have skyrocketed!"</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">JS</div>
-                            <div class="author-info">
-                                <h4>Jessica Smith</h4>
-                                <span>Owner, Bright Marketing</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial fade-in">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"Professional, reliable, and easy to use. The AI receptionist handles calls better than a human could 24/7!"</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">MD</div>
-                            <div class="author-info">
-                                <h4>Mark Davis</h4>
-                                <span>CEO, Home Solutions Inc.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial fade-in">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"Highly recommend NetifyBuilds for any business that wants to improve client communication without hiring extra staff."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">AL</div>
-                            <div class="author-info">
-                                <h4>Amanda Lee</h4>
-                                <span>Founder, EventPro Co.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <h2 class="section-title">Client Feedback</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <p class="testimonial-text">“NetifyBuilds completely changed how we handle customer calls — professional and efficient 24/7. Highly recommend!”</p>
+                <strong>Alice Brown, CEO, FastTech Solutions</strong>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">“Our customers love the AI receptionist — it’s like having an extra team member who never sleeps.”</p>
+                <strong>John Miller, Founder, QuickServe LLC</strong>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="section">
-            <h2 class="section-title fade-in">Get in Touch</h2>
-            <div class="contact-content">
-                <p>Ready to never miss another call? Contact us today and let NetifyBuilds handle your front desk professionally and efficiently.</p>
-                <form class="contact-form fade-in">
-                    <div class="form-group">
-                        <input type="text" placeholder="First Name" required>
-                        <input type="text" placeholder="Last Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Email Address" required>
-                        <input type="tel" placeholder="Phone Number">
-                    </div>
-                    <input type="text" placeholder="Business Name">
-                    <textarea placeholder="Describe your business needs..." required></textarea>
-                    <button type="submit" class="submit-btn">Start Your AI Receptionist</button>
-                </form>
-            </div>
-        </div>
+        <h2 class="section-title">Get in Touch</h2>
+        <p style="text-align:center; max-width:700px; margin:0 auto 20px;">Ready to set up your AI receptionist? Contact us today!</p>
+        <form class="contact-form" action="https://formspree.io/f/mwvlnpdr" method="POST">
+            <input type="text" name="first-name" placeholder="First Name" required>
+            <input type="text" name="last-name" placeholder="Last Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number">
+            <input type="text" name="business-name" placeholder="Business Name">
+            <textarea name="message" placeholder="Describe your business needs..." required></textarea>
+            <button type="submit" class="submit-btn">Start Your AI Receptionist</button>
+        </form>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#terms">Terms of Service</a>
-                <a href="#careers">Careers</a>
-            </div>
-            <div class="footer-copyright">
-                © 2026 NetifyBuilds. All rights reserved.
-            </div>
-            <div class="footer-design">
-                Design: <a href="https://www.tooplate.com" target="_blank">Tooplate</a>
-            </div>
-        </div>
+        <p>© 2026 NetifyBuilds. All rights reserved.</p>
+        <p>
+            <a href="#privacy">Privacy Policy</a> | 
+            <a href="#terms">Terms of Service</a>
+        </p>
     </footer>
+
 <script src="tooplate-strategic-scripts.js"></script>
 </body>
 </html>
+
