@@ -101,6 +101,10 @@
     .price-btn:hover { background: var(--navy); color: var(--white); }
     .price-card.featured .price-btn { background: var(--accent); border-color: var(--accent); color: var(--white); }
     .price-card.featured .price-btn:hover { background: var(--accent-light); border-color: var(--accent-light); }
+    .learn-more-btn { display: block; text-align: center; padding: 0.6rem; border-radius: 8px; font-weight: 500; font-size: 0.82rem; text-decoration: none; transition: all 0.2s; border: 1px solid var(--gray-light); color: var(--gray); background: transparent; margin-top: 0.6rem; }
+    .learn-more-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .price-card.featured .learn-more-btn { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); }
+    .price-card.featured .learn-more-btn:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
     .pricing-note { text-align: center; margin-top: 2rem; font-size: 0.85rem; color: var(--gray); }
     .cta-section { background: var(--navy); padding: 100px 6%; text-align: center; position: relative; overflow: hidden; }
     .cta-section::before { content: ''; position: absolute; top: -150px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
@@ -244,6 +248,7 @@
         <p class="section-sub" style="max-width: 340px;">All plans are month-to-month. Cancel anytime. First campaign is free for new clients.</p>
       </div>
       <div class="pricing-grid">
+
         <div class="price-card reveal">
           <div class="price-name">Lead Reactivation</div>
           <div class="price-amount"><sup>$</sup>397</div>
@@ -256,7 +261,9 @@
             <li class="price-item">Monthly results report</li>
           </ul>
           <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Get Started</a>
+          <a href="reactivation.html" class="learn-more-btn">Learn More →</a>
         </div>
+
         <div class="price-card featured reveal">
           <div class="featured-badge">Most Popular</div>
           <div class="price-name">Growth Bundle</div>
@@ -271,7 +278,9 @@
             <li class="price-item">Bi-weekly performance reports</li>
           </ul>
           <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Book a Call</a>
+          <a href="bundle.html" class="learn-more-btn">Learn More →</a>
         </div>
+
         <div class="price-card reveal">
           <div class="price-name">Ads Management</div>
           <div class="price-amount"><sup>$</sup>497</div>
@@ -284,7 +293,9 @@
             <li class="price-item">Monthly reporting</li>
           </ul>
           <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Get Started</a>
+          <a href="ads.html" class="learn-more-btn">Learn More →</a>
         </div>
+
       </div>
       <p class="pricing-note reveal">All plans include a free strategy call. First reactivation campaign is on us. Ad spend budget is separate and controlled by you.</p>
     </div>
@@ -310,9 +321,7 @@
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        }
+        if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80);
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
@@ -320,4 +329,3 @@
 
 </body>
 </html>
-
