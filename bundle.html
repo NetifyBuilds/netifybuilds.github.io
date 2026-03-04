@@ -1,1 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Growth Bundle — Netify</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f1f3d; --accent: #2563eb; --accent-light: #3b82f6; --gold: #c9a84c;
+      --white: #ffffff; --off-white: #f8f9fc; --gray: #64748b; --gray-light: #e2e8f0; --text: #0f172a;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-light); padding: 0 6%; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--navy); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .back-btn { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--gray); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .back-btn:hover { color: var(--navy); }
+    .back-btn::before { content: '←'; font-size: 1rem; }
+    .hero { padding: 140px 6% 80px; background: var(--navy); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,168,76,0.2) 0%, transparent 70%); border-radius: 50%; }
+    .hero-inner { max-width: 800px; margin: 0 auto; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3); color: var(--gold); font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.1s forwards; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.7); line-height: 1.7; max-width: 600px; opacity: 0; animation: fadeUp 0.6s 0.3s forwards; }
+    .hero-price { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s 0.4s forwards; }
+    .price-tag { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 1.2rem 2rem; }
+    .price-tag .amount { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--white); }
+    .price-tag .amount sup { font-size: 1rem; vertical-align: super; }
+    .price-tag .label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+    .price-tag .savings { font-size: 0.8rem; color: var(--gold); margin-top: 4px; font-weight: 600; }
+    .cta-btn { background: var(--gold); color: var(--navy); padding: 0.9rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; border: 2px solid var(--gold); }
+    .cta-btn:hover { background: #e0bc5a; border-color: #e0bc5a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+    section { padding: 80px 6%; }
+    .section-inner { max-width: 800px; margin: 0 auto; }
+    .section-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 1.5rem; }
+    .bundle-breakdown { background: var(--off-white); }
+    .bundle-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    .bundle-card { background: var(--white); border-radius: 12px; padding: 2rem; border: 1px solid var(--gray-light); }
+    .bundle-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem; }
+    .bundle-card-icon { width: 40px; height: 40px; background: rgba(37,99,235,0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+    .bundle-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); }
+    .bundle-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .bundle-card li { font-size: 0.85rem; color: var(--gray); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+    .bundle-card li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+    .process { background: var(--white); }
+    .process-steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+    .process-step { background: var(--off-white); border-radius: 12px; padding: 2rem; border: 1px solid var(--gray-light); display: flex; gap: 1.5rem; align-items: flex-start; transition: transform 0.2s, box-shadow 0.2s; }
+    .process-step:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(15,31,61,0.08); }
+    .step-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: rgba(37,99,235,0.15); line-height: 1; flex-shrink: 0; width: 40px; }
+    .step-content h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .step-content p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+    .timeline { background: var(--off-white); }
+    .timeline-items { display: flex; flex-direction: column; gap: 0; margin-top: 2.5rem; position: relative; }
+    .timeline-items::before { content: ''; position: absolute; left: 16px; top: 0; bottom: 0; width: 2px; background: var(--gray-light); }
+    .timeline-item { display: flex; gap: 1.5rem; padding-bottom: 2rem; position: relative; }
+    .timeline-dot { width: 34px; height: 34px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; color: var(--navy); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; position: relative; z-index: 1; }
+    .timeline-content { padding-top: 4px; }
+    .timeline-content .time { font-size: 0.75rem; font-weight: 700; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .timeline-content h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+    .timeline-content p { font-size: 0.875rem; color: var(--gray); line-height: 1.6; }
+    .faq-items { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.5rem; }
+    .faq-item { border: 1px solid var(--gray-light); border-radius: 10px; overflow: hidden; }
+    .faq-q { padding: 1.25rem 1.5rem; font-weight: 600; font-size: 0.95rem; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; }
+    .faq-q:hover { background: var(--off-white); }
+    .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--accent); font-weight: 300; transition: transform 0.2s; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s; }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 1.5rem 1.25rem; }
+    .faq-a p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+    .bottom-cta { background: var(--navy); text-align: center; padding: 80px 6%; position: relative; overflow: hidden; }
+    .bottom-cta::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .bottom-cta h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: var(--white); margin-bottom: 1rem; }
+    .bottom-cta p { color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.7; max-width: 500px; margin: 0 auto 2rem; }
+    .btn-gold { background: var(--gold); color: var(--navy); padding: 0.9rem 2.2rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; border: 2px solid var(--gold); }
+    .btn-gold:hover { background: #e0bc5a; border-color: #e0bc5a; transform: translateY(-2px); }
+    footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 2rem 6%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: var(--white); text-decoration: none; }
+    .footer-logo span { color: var(--accent-light); }
+    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; }
+    footer a:hover { color: var(--white); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 700px) { .bundle-cards { grid-template-columns: 1fr; } .hero-price { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
 
+  <nav>
+    <a href="index.html" class="nav-logo">Netify<span>.</span></a>
+    <a href="index.html" class="back-btn">Back to Home</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">⭐ Most Popular</div>
+      <h1>The Growth <em>Bundle</em></h1>
+      <p class="hero-sub">The complete package. Reactivate your dormant customer list while running paid ads to bring in new ones — both strategies running simultaneously for maximum results heading into peak season.</p>
+      <div class="hero-price">
+        <div class="price-tag">
+          <div class="amount"><sup>$</sup>997</div>
+          <div class="label">per month — Reactivation + Ads</div>
+          <div class="savings">Save $397/month vs buying separately</div>
+        </div>
+        <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="cta-btn">Book a Free Strategy Call</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bundle-breakdown">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-tag">What's Included</div>
+        <h2 class="section-title">Two Services. One Price.</h2>
+      </div>
+      <div class="bundle-cards">
+        <div class="bundle-card reveal">
+          <div class="bundle-card-header">
+            <div class="bundle-card-icon">📲</div>
+            <h3>Lead Reactivation</h3>
+          </div>
+          <ul>
+            <li>2 SMS + email campaigns per month</li>
+            <li>Custom copywriting for each campaign</li>
+            <li>List cleanup & segmentation</li>
+            <li>Seasonal offer strategy</li>
+            <li>Performance tracking & reporting</li>
+          </ul>
+        </div>
+        <div class="bundle-card reveal">
+          <div class="bundle-card-header">
+            <div class="bundle-card-icon">📈</div>
+            <h3>Ads Management</h3>
+          </div>
+          <ul>
+            <li>Meta or Google campaign setup</li>
+            <li>Ad creative & copywriting</li>
+            <li>Local audience targeting</li>
+            <li>Ongoing optimization</li>
+            <li>Monthly reporting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-tag">How It Works</div>
+        <h2 class="section-title">The Full Process</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Onboarding Call</h3>
+            <p>We get to know your business, your goals, and your customer base. This shapes both the reactivation campaigns and the ad strategy from day one.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>List Cleanup + Campaign Build</h3>
+            <p>We clean your customer list and simultaneously build out the ad campaigns — both tracks running in parallel so you're not waiting.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Everything Launches Together</h3>
+            <p>Reactivation campaigns go out to your existing customers while paid ads start reaching new homeowners in your area at the same time.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Ongoing Management of Both</h3>
+            <p>We monitor and optimize both the reactivation campaigns and the ads throughout the month — everything is actively managed, nothing is set and forgotten.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">05</div>
+          <div class="step-content">
+            <h3>Bi-Weekly Reports</h3>
+            <p>You get performance updates every two weeks — reactivation results, ad performance, leads generated, and what we're doing next.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-tag">What to Expect</div>
+        <h2 class="section-title">Timeline & Results</h2>
+      </div>
+      <div class="timeline-items">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">1</div>
+          <div class="timeline-content">
+            <div class="time">Day 1–3</div>
+            <h3>Setup & Strategy</h3>
+            <p>Onboarding call, list cleanup, ad campaign build, and copy written for the first reactivation campaign.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">2</div>
+          <div class="timeline-content">
+            <div class="time">Day 4–7</div>
+            <h3>Everything Goes Live</h3>
+            <p>Reactivation messages go out to your dormant customers. Ads start running to new local homeowners. First responses typically come in within 48 hours.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">3</div>
+          <div class="timeline-content">
+            <div class="time">Week 2</div>
+            <h3>First Results Report</h3>
+            <p>You get your first bi-weekly update — reactivation responses, bookings generated, and early ad performance data.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">4</div>
+          <div class="timeline-content">
+            <div class="time">Week 3–4</div>
+            <h3>Second Campaign Launches</h3>
+            <p>Second reactivation campaign goes out while ads are now fully optimized and generating leads at a lower cost per lead.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">5</div>
+          <div class="timeline-content">
+            <div class="time">Month 2+</div>
+            <h3>Compounding Results</h3>
+            <p>Each month builds on the last. Ad results improve, your reactivated customers become repeat clients, and your calendar stays full.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-tag">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+      <div class="faq-items">
+        <div class="faq-item reveal">
+          <div class="faq-q">Why is the bundle better than buying separately?</div>
+          <div class="faq-a"><p>You save $397/month, but more importantly the two strategies work better together. Reactivation brings back customers who already trust you while ads bring in new ones — you're filling your calendar from both directions at the same time.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">Do I need a customer list for the bundle?</div>
+          <div class="faq-a"><p>Yes for the reactivation side — we need your existing customer database. If your list is small we can weight more effort toward the ads side while you build up more customer history.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">How much ad spend budget do I need on top of the $997?</div>
+          <div class="faq-a"><p>We recommend starting with at least $500/month in ad spend. This goes directly to Meta or Google — it's separate from our management fee and you control it completely.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">Can I start with just one service and upgrade later?</div>
+          <div class="faq-a"><p>Absolutely. Many clients start with reactivation only to prove results, then add ads management once they see the ROI. You can upgrade to the bundle at any time.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">Is there a contract?</div>
+          <div class="faq-a"><p>No contracts. Month-to-month only. We recommend sticking with it for at least 60 days to see the full compounding effect of both strategies running together, but you're never locked in.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta">
+    <div class="section-inner">
+      <h2>Ready to Fill Your Calendar?</h2>
+      <p>Book a free 15-minute call. We'll map out exactly what both strategies would look like for your business — no pressure, no pitch.</p>
+      <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="btn-gold">Book a Free Strategy Call</a>
+    </div>
+  </section>
+
+  <footer>
+    <a href="index.html" class="footer-logo">Netify<span>.</span></a>
+    <p>© 2026 Netify. All rights reserved.</p>
+    <a href="mailto:contact@netifybuilds.com">contact@netifybuilds.com</a>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
