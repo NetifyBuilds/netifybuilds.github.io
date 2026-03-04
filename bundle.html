@@ -26,36 +26,74 @@
     .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; }
     .hero h1 em { font-style: italic; color: var(--gold); }
     .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.7); line-height: 1.7; max-width: 600px; opacity: 0; animation: fadeUp 0.6s 0.3s forwards; }
-    .hero-price { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s 0.4s forwards; }
-    .price-tag { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 1.2rem 2rem; }
-    .price-tag .amount { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--white); }
-    .price-tag .amount sup { font-size: 1rem; vertical-align: super; }
-    .price-tag .label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
-    .price-tag .savings { font-size: 0.8rem; color: var(--gold); margin-top: 4px; font-weight: 600; }
-    .cta-btn { background: var(--gold); color: var(--navy); padding: 0.9rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; border: 2px solid var(--gold); }
-    .cta-btn:hover { background: #e0bc5a; border-color: #e0bc5a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
     section { padding: 80px 6%; }
-    .section-inner { max-width: 800px; margin: 0 auto; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
     .section-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 1.5rem; }
-    .bundle-breakdown { background: var(--off-white); }
-    .bundle-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
-    .bundle-card { background: var(--white); border-radius: 12px; padding: 2rem; border: 1px solid var(--gray-light); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: var(--gray); line-height: 1.7; max-width: 600px; margin-bottom: 3rem; }
+
+    /* PRICING */
+    .pricing { background: var(--off-white); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .price-card { background: var(--white); border-radius: 14px; padding: 2rem 1.5rem; border: 1px solid var(--gray-light); transition: all 0.2s; position: relative; display: flex; flex-direction: column; }
+    .price-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(15,31,61,0.1); }
+    .price-card.featured { background: var(--navy); border-color: var(--navy); }
+    .price-card.enterprise { background: var(--white); border: 2px solid var(--gold); }
+    .featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
+    .enterprise-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
+    .price-name { font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 0.5rem; }
+    .price-card.featured .price-name { color: rgba(255,255,255,0.5); }
+    .price-card.enterprise .price-name { color: var(--gold); }
+    .price-amount { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--navy); line-height: 1; }
+    .price-amount sup { font-size: 1rem; vertical-align: super; }
+    .price-card.featured .price-amount { color: var(--white); }
+    .price-card.enterprise .price-amount { font-size: 1.8rem; color: var(--navy); }
+    .price-period { font-size: 0.8rem; color: var(--gray); margin-bottom: 0.5rem; }
+    .price-card.featured .price-period { color: rgba(255,255,255,0.5); }
+    .price-savings { font-size: 0.78rem; font-weight: 600; color: #22c55e; margin-bottom: 0.75rem; }
+    .price-card.featured .price-savings { color: #4ade80; }
+    .price-contacts { display: inline-flex; align-items: center; gap: 6px; background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.15); color: var(--accent); font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 100px; margin-bottom: 1.2rem; }
+    .price-card.featured .price-contacts { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); }
+    .price-card.enterprise .price-contacts { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.3); color: var(--gold); }
+    .price-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.6; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--gray-light); }
+    .price-card.featured .price-desc { color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.1); }
+    .price-card.enterprise .price-desc { border-bottom-color: rgba(201,168,76,0.2); }
+    .price-items { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem; flex: 1; }
+    .price-item { font-size: 0.82rem; color: var(--gray); display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+    .price-item::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+    .price-card.featured .price-item { color: rgba(255,255,255,0.75); }
+    .price-card.featured .price-item::before { color: var(--gold); }
+    .price-card.enterprise .price-item::before { color: var(--gold); }
+    .price-btn { display: block; text-align: center; padding: 0.8rem; border-radius: 8px; font-weight: 600; font-size: 0.875rem; text-decoration: none; transition: all 0.2s; border: 2px solid var(--navy); color: var(--navy); background: transparent; }
+    .price-btn:hover { background: var(--navy); color: var(--white); }
+    .price-card.featured .price-btn { background: var(--accent); border-color: var(--accent); color: var(--white); }
+    .price-card.featured .price-btn:hover { background: var(--accent-light); border-color: var(--accent-light); }
+    .price-card.enterprise .price-btn { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 700; }
+    .price-card.enterprise .price-btn:hover { background: #e0bc5a; border-color: #e0bc5a; transform: translateY(-2px); }
+
+    /* BUNDLE BREAKDOWN */
+    .bundle-breakdown { background: var(--white); }
+    .bundle-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+    .bundle-card { background: var(--off-white); border-radius: 12px; padding: 2rem; border: 1px solid var(--gray-light); }
     .bundle-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem; }
     .bundle-card-icon { width: 40px; height: 40px; background: rgba(37,99,235,0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
     .bundle-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); }
     .bundle-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
     .bundle-card li { font-size: 0.85rem; color: var(--gray); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
     .bundle-card li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
-    .process { background: var(--white); }
-    .process-steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
-    .process-step { background: var(--off-white); border-radius: 12px; padding: 2rem; border: 1px solid var(--gray-light); display: flex; gap: 1.5rem; align-items: flex-start; transition: transform 0.2s, box-shadow 0.2s; }
+
+    /* PROCESS */
+    .process { background: var(--off-white); }
+    .process-steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+    .process-step { background: var(--white); border-radius: 12px; padding: 2rem; border: 1px solid var(--gray-light); display: flex; gap: 1.5rem; align-items: flex-start; transition: transform 0.2s, box-shadow 0.2s; }
     .process-step:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(15,31,61,0.08); }
     .step-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: rgba(37,99,235,0.15); line-height: 1; flex-shrink: 0; width: 40px; }
     .step-content h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
     .step-content p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
-    .timeline { background: var(--off-white); }
-    .timeline-items { display: flex; flex-direction: column; gap: 0; margin-top: 2.5rem; position: relative; }
+
+    /* TIMELINE */
+    .timeline { background: var(--white); }
+    .timeline-items { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; position: relative; }
     .timeline-items::before { content: ''; position: absolute; left: 16px; top: 0; bottom: 0; width: 2px; background: var(--gray-light); }
     .timeline-item { display: flex; gap: 1.5rem; padding-bottom: 2rem; position: relative; }
     .timeline-dot { width: 34px; height: 34px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; color: var(--navy); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; position: relative; z-index: 1; }
@@ -63,8 +101,11 @@
     .timeline-content .time { font-size: 0.75rem; font-weight: 700; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.3rem; }
     .timeline-content h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
     .timeline-content p { font-size: 0.875rem; color: var(--gray); line-height: 1.6; }
-    .faq-items { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.5rem; }
-    .faq-item { border: 1px solid var(--gray-light); border-radius: 10px; overflow: hidden; }
+
+    /* FAQ */
+    .faq { background: var(--off-white); }
+    .faq-items { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .faq-item { border: 1px solid var(--gray-light); border-radius: 10px; overflow: hidden; background: var(--white); }
     .faq-q { padding: 1.25rem 1.5rem; font-weight: 600; font-size: 0.95rem; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; }
     .faq-q:hover { background: var(--off-white); }
     .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--accent); font-weight: 300; transition: transform 0.2s; }
@@ -72,12 +113,14 @@
     .faq-a { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s; }
     .faq-item.open .faq-a { max-height: 200px; padding: 0 1.5rem 1.25rem; }
     .faq-a p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+
     .bottom-cta { background: var(--navy); text-align: center; padding: 80px 6%; position: relative; overflow: hidden; }
     .bottom-cta::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
     .bottom-cta h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: var(--white); margin-bottom: 1rem; }
     .bottom-cta p { color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.7; max-width: 500px; margin: 0 auto 2rem; }
-    .btn-gold { background: var(--gold); color: var(--navy); padding: 0.9rem 2.2rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; border: 2px solid var(--gold); }
+    .btn-gold { background: var(--gold); color: var(--navy); padding: 0.9rem 2.2rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; border: 2px solid var(--gold); display: inline-block; }
     .btn-gold:hover { background: #e0bc5a; border-color: #e0bc5a; transform: translateY(-2px); }
+
     footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 2rem 6%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: var(--white); text-decoration: none; }
     .footer-logo span { color: var(--accent-light); }
@@ -87,7 +130,8 @@
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 700px) { .bundle-cards { grid-template-columns: 1fr; } .hero-price { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 1000px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 700px) { .pricing-grid { grid-template-columns: 1fr; } .bundle-cards { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -101,23 +145,113 @@
     <div class="hero-inner">
       <div class="hero-tag">⭐ Most Popular</div>
       <h1>The Growth <em>Bundle</em></h1>
-      <p class="hero-sub">The complete package. Reactivate your dormant customer list while running paid ads to bring in new ones — both strategies running simultaneously for maximum results heading into peak season.</p>
-      <div class="hero-price">
-        <div class="price-tag">
-          <div class="amount"><sup>$</sup>997</div>
-          <div class="label">per month — Reactivation + Ads</div>
-          <div class="savings">Save $397/month vs buying separately</div>
+      <p class="hero-sub">Reactivate your dormant contact list while paid ads bring in new customers — both running simultaneously for maximum results. Save $99/month vs buying separately.</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-tag">Plans & Pricing</div>
+        <h2 class="section-title">Pick Your Bundle</h2>
+        <p class="section-sub">Every bundle includes full Ads Management plus a Reactivation plan that matches your contact list size. All plans save you $99/month vs buying separately.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <div class="price-card reveal">
+          <div class="price-name">Bundle Starter</div>
+          <div class="price-amount"><sup>$</sup>599</div>
+          <div class="price-period">/ month</div>
+          <div class="price-savings">Save $99/mo vs separate</div>
+          <div class="price-contacts">Up to 50 contacts · 100 messages/mo</div>
+          <div class="price-desc">Reactivation Starter + full Ads Management. Perfect for smaller businesses ready to attack growth from both directions.</div>
+          <ul class="price-items">
+            <li class="price-item">1 reactivation campaign/month</li>
+            <li class="price-item">Up to 50 contacts</li>
+            <li class="price-item">100 messages per month</li>
+            <li class="price-item">Meta or Google Ads management</li>
+            <li class="price-item">Ad creative & copywriting</li>
+            <li class="price-item">Local audience targeting</li>
+            <li class="price-item">Monthly results report</li>
+          </ul>
+          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Get Started</a>
         </div>
-        <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="cta-btn">Book a Free Strategy Call</a>
+
+        <div class="price-card featured reveal">
+          <div class="featured-badge">Most Popular</div>
+          <div class="price-name">Bundle Growth</div>
+          <div class="price-amount"><sup>$</sup>799</div>
+          <div class="price-period">/ month</div>
+          <div class="price-savings">Save $99/mo vs separate</div>
+          <div class="price-contacts">Up to 150 contacts · 300 messages/mo</div>
+          <div class="price-desc">Reactivation Growth + full Ads Management. The sweet spot for growing businesses that want serious results.</div>
+          <ul class="price-items">
+            <li class="price-item">2 reactivation campaigns/month</li>
+            <li class="price-item">Up to 150 contacts</li>
+            <li class="price-item">300 messages per month</li>
+            <li class="price-item">Meta or Google Ads management</li>
+            <li class="price-item">Ad creative & copywriting</li>
+            <li class="price-item">Local audience targeting</li>
+            <li class="price-item">Seasonal offer strategy</li>
+            <li class="price-item">Bi-weekly performance reports</li>
+          </ul>
+          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Book a Call</a>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-name">Bundle Pro</div>
+          <div class="price-amount"><sup>$</sup>999</div>
+          <div class="price-period">/ month</div>
+          <div class="price-savings">Save $99/mo vs separate</div>
+          <div class="price-contacts">Up to 300 contacts · 600 messages/mo</div>
+          <div class="price-desc">Reactivation Pro + full Ads Management. Maximum volume across both channels for established businesses.</div>
+          <ul class="price-items">
+            <li class="price-item">3 reactivation campaigns/month</li>
+            <li class="price-item">Up to 300 contacts</li>
+            <li class="price-item">600 messages per month</li>
+            <li class="price-item">Meta or Google Ads management</li>
+            <li class="price-item">Ad creative & copywriting</li>
+            <li class="price-item">Advanced list segmentation</li>
+            <li class="price-item">Seasonal offer strategy</li>
+            <li class="price-item">Bi-weekly performance reports</li>
+            <li class="price-item">Priority support</li>
+          </ul>
+          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Get Started</a>
+        </div>
+
+        <div class="price-card enterprise reveal">
+          <div class="enterprise-badge">Enterprise</div>
+          <div class="price-name">Bundle Custom</div>
+          <div class="price-amount">Let's Talk</div>
+          <div class="price-period">custom pricing</div>
+          <div class="price-savings">Custom savings on volume</div>
+          <div class="price-contacts">300+ contacts · Custom volume</div>
+          <div class="price-desc">For larger businesses that need a fully custom reactivation and ads solution built around their scale.</div>
+          <ul class="price-items">
+            <li class="price-item">Unlimited reactivation campaigns</li>
+            <li class="price-item">300+ contacts — no cap</li>
+            <li class="price-item">Custom message volume</li>
+            <li class="price-item">Multi-platform ads management</li>
+            <li class="price-item">Dedicated account management</li>
+            <li class="price-item">Custom reporting dashboard</li>
+            <li class="price-item">Weekly strategy calls</li>
+            <li class="price-item">Priority support</li>
+          </ul>
+          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Contact Us</a>
+        </div>
+
       </div>
     </div>
   </section>
 
+  <!-- BUNDLE BREAKDOWN -->
   <section class="bundle-breakdown">
     <div class="section-inner">
       <div class="reveal">
         <div class="section-tag">What's Included</div>
         <h2 class="section-title">Two Services. One Price.</h2>
+        <p class="section-sub">Every bundle combines both of our core services running simultaneously.</p>
       </div>
       <div class="bundle-cards">
         <div class="bundle-card reveal">
@@ -126,11 +260,11 @@
             <h3>Lead Reactivation</h3>
           </div>
           <ul>
-            <li>2 SMS + email campaigns per month</li>
-            <li>Custom copywriting for each campaign</li>
-            <li>List cleanup & segmentation</li>
-            <li>Seasonal offer strategy</li>
+            <li>Custom SMS & email campaigns</li>
+            <li>Contact list cleanup & segmentation</li>
+            <li>Seasonal offer copywriting</li>
             <li>Performance tracking & reporting</li>
+            <li>Scales with your contact list size</li>
           </ul>
         </div>
         <div class="bundle-card reveal">
@@ -150,39 +284,41 @@
     </div>
   </section>
 
+  <!-- PROCESS -->
   <section class="process">
     <div class="section-inner">
       <div class="reveal">
         <div class="section-tag">How It Works</div>
         <h2 class="section-title">The Full Process</h2>
+        <p class="section-sub">Both services launch together so you're hitting your market from two directions at once from day one.</p>
       </div>
       <div class="process-steps">
         <div class="process-step reveal">
           <div class="step-num">01</div>
           <div class="step-content">
             <h3>Onboarding Call</h3>
-            <p>We get to know your business, your goals, and your customer base. This shapes both the reactivation campaigns and the ad strategy from day one.</p>
+            <p>We get to know your business, goals, and contact base. This shapes both the reactivation campaigns and the ad strategy from day one.</p>
           </div>
         </div>
         <div class="process-step reveal">
           <div class="step-num">02</div>
           <div class="step-content">
             <h3>List Cleanup + Campaign Build</h3>
-            <p>We clean your customer list and simultaneously build out the ad campaigns — both tracks running in parallel so you're not waiting.</p>
+            <p>We clean your contact list and build out the ad campaigns simultaneously — both tracks running in parallel so nothing is delayed.</p>
           </div>
         </div>
         <div class="process-step reveal">
           <div class="step-num">03</div>
           <div class="step-content">
             <h3>Everything Launches Together</h3>
-            <p>Reactivation campaigns go out to your existing customers while paid ads start reaching new homeowners in your area at the same time.</p>
+            <p>Reactivation messages go out to your existing contacts while paid ads start reaching new local customers at the same time.</p>
           </div>
         </div>
         <div class="process-step reveal">
           <div class="step-num">04</div>
           <div class="step-content">
             <h3>Ongoing Management of Both</h3>
-            <p>We monitor and optimize both the reactivation campaigns and the ads throughout the month — everything is actively managed, nothing is set and forgotten.</p>
+            <p>We monitor and optimize both services throughout the month — everything is actively managed, nothing is set and forgotten.</p>
           </div>
         </div>
         <div class="process-step reveal">
@@ -196,11 +332,13 @@
     </div>
   </section>
 
+  <!-- TIMELINE -->
   <section class="timeline">
     <div class="section-inner">
       <div class="reveal">
         <div class="section-tag">What to Expect</div>
         <h2 class="section-title">Timeline & Results</h2>
+        <p class="section-sub">Here's what the first 30 days look like when both services launch together.</p>
       </div>
       <div class="timeline-items">
         <div class="timeline-item reveal">
@@ -208,7 +346,7 @@
           <div class="timeline-content">
             <div class="time">Day 1–3</div>
             <h3>Setup & Strategy</h3>
-            <p>Onboarding call, list cleanup, ad campaign build, and copy written for the first reactivation campaign.</p>
+            <p>Onboarding call, list cleanup, ad campaign build, and copy written for the first reactivation campaign — all happening in parallel.</p>
           </div>
         </div>
         <div class="timeline-item reveal">
@@ -216,7 +354,7 @@
           <div class="timeline-content">
             <div class="time">Day 4–7</div>
             <h3>Everything Goes Live</h3>
-            <p>Reactivation messages go out to your dormant customers. Ads start running to new local homeowners. First responses typically come in within 48 hours.</p>
+            <p>Reactivation messages go out to your contacts. Ads start running to new local customers. First responses typically come in within 48 hours.</p>
           </div>
         </div>
         <div class="timeline-item reveal">
@@ -231,7 +369,7 @@
           <div class="timeline-dot">4</div>
           <div class="timeline-content">
             <div class="time">Week 3–4</div>
-            <h3>Second Campaign Launches</h3>
+            <h3>Second Campaign + Optimized Ads</h3>
             <p>Second reactivation campaign goes out while ads are now fully optimized and generating leads at a lower cost per lead.</p>
           </div>
         </div>
@@ -240,14 +378,15 @@
           <div class="timeline-content">
             <div class="time">Month 2+</div>
             <h3>Compounding Results</h3>
-            <p>Each month builds on the last. Ad results improve, your reactivated customers become repeat clients, and your calendar stays full.</p>
+            <p>Each month builds on the last. Ad results improve, reactivated contacts become repeat customers, and your calendar stays full.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section>
+  <!-- FAQ -->
+  <section class="faq">
     <div class="section-inner">
       <div class="reveal">
         <div class="section-tag">FAQ</div>
@@ -256,23 +395,23 @@
       <div class="faq-items">
         <div class="faq-item reveal">
           <div class="faq-q">Why is the bundle better than buying separately?</div>
-          <div class="faq-a"><p>You save $397/month, but more importantly the two strategies work better together. Reactivation brings back customers who already trust you while ads bring in new ones — you're filling your calendar from both directions at the same time.</p></div>
+          <div class="faq-a"><p>You save $99/month on every tier, but more importantly the two strategies work better together. Reactivation brings back contacts who already trust you while ads bring in new ones — you're filling your calendar from both directions at the same time.</p></div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-q">Do I need a customer list for the bundle?</div>
-          <div class="faq-a"><p>Yes for the reactivation side — we need your existing customer database. If your list is small we can weight more effort toward the ads side while you build up more customer history.</p></div>
+          <div class="faq-q">What's the minimum number of contacts I need?</div>
+          <div class="faq-a"><p>The minimum is 50 contacts to start with Bundle Starter. If your list is smaller we can weight more effort toward the ads side while you build up more contact history.</p></div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-q">How much ad spend budget do I need on top of the $997?</div>
-          <div class="faq-a"><p>We recommend starting with at least $500/month in ad spend. This goes directly to Meta or Google — it's separate from our management fee and you control it completely.</p></div>
+          <div class="faq-q">How much should I budget for ad spend on top of the bundle price?</div>
+          <div class="faq-a"><p>We recommend a minimum of $500/month in ad spend. This goes directly to Meta or Google — it's separate from our management fee and you control it completely.</p></div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-q">Can I start with just one service and upgrade later?</div>
-          <div class="faq-a"><p>Absolutely. Many clients start with reactivation only to prove results, then add ads management once they see the ROI. You can upgrade to the bundle at any time.</p></div>
+          <div class="faq-q">Can I start with one service and add the bundle later?</div>
+          <div class="faq-a"><p>Absolutely. Many clients start with reactivation only to see results first, then upgrade to the bundle once they see the ROI. You can switch plans at any time.</p></div>
         </div>
         <div class="faq-item reveal">
           <div class="faq-q">Is there a contract?</div>
-          <div class="faq-a"><p>No contracts. Month-to-month only. We recommend sticking with it for at least 60 days to see the full compounding effect of both strategies running together, but you're never locked in.</p></div>
+          <div class="faq-a"><p>No contracts. Month-to-month only. We recommend at least 60 days to see the full compounding effect of both services running together, but you're never locked in.</p></div>
         </div>
       </div>
     </div>
@@ -281,7 +420,7 @@
   <section class="bottom-cta">
     <div class="section-inner">
       <h2>Ready to Fill Your Calendar?</h2>
-      <p>Book a free 15-minute call. We'll map out exactly what both strategies would look like for your business — no pressure, no pitch.</p>
+      <p>Book a free 15-minute call. We'll map out exactly what the bundle would look like for your business — no pressure, no pitch.</p>
       <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="btn-gold">Book a Free Strategy Call</a>
     </div>
   </section>
