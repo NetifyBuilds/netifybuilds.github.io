@@ -15,12 +15,7 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--gray-light); padding: 0 6%;
-      display: flex; align-items: center; justify-content: space-between; height: 68px;
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-light); padding: 0 6%; display: flex; align-items: center; justify-content: space-between; height: 68px; }
     .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--navy); letter-spacing: -0.5px; text-decoration: none; }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -38,9 +33,9 @@
     .hero h1 em { font-style: italic; color: var(--accent); }
     .hero-sub { font-size: 1.1rem; color: var(--gray); line-height: 1.7; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.6s 0.3s forwards; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s 0.4s forwards; }
-    .btn-primary { background: var(--navy); color: var(--white); padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; border: 2px solid var(--navy); }
+    .btn-primary { background: var(--navy); color: var(--white); padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; border: 2px solid var(--navy); display: inline-block; }
     .btn-primary:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.25); }
-    .btn-secondary { background: transparent; color: var(--navy); padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 2px solid var(--gray-light); transition: all 0.2s; }
+    .btn-secondary { background: transparent; color: var(--navy); padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 2px solid var(--gray-light); transition: all 0.2s; display: inline-block; }
     .btn-secondary:hover { border-color: var(--navy); transform: translateY(-2px); }
     .hero-visual { opacity: 0; animation: fadeLeft 0.7s 0.5s forwards; }
     .hero-card { background: var(--navy); border-radius: 16px; padding: 2.5rem; color: var(--white); position: relative; overflow: hidden; }
@@ -59,6 +54,11 @@
     .section-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 1.2rem; }
     .section-sub { font-size: 1.05rem; color: var(--gray); line-height: 1.7; max-width: 560px; }
+    .industries { background: var(--navy); padding: 60px 6%; }
+    .industries-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+    .industries-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
+    .industries-list { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .industry-tag { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); padding: 0.5rem 1.2rem; border-radius: 100px; font-size: 0.875rem; font-weight: 500; }
     .how { background: var(--off-white); }
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
     .step { background: var(--white); border-radius: 12px; padding: 2.5rem 2rem; border: 1px solid var(--gray-light); transition: transform 0.2s, box-shadow 0.2s; }
@@ -66,11 +66,6 @@
     .step-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; color: rgba(37,99,235,0.1); line-height: 1; margin-bottom: 1rem; }
     .step h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
     .step p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
-    .industries { background: var(--navy); padding: 60px 6%; }
-    .industries-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
-    .industries-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
-    .industries-list { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
-    .industry-tag { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); padding: 0.5rem 1.2rem; border-radius: 100px; font-size: 0.875rem; font-weight: 500; }
     .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 4rem; }
     .service-card { border: 1px solid var(--gray-light); border-radius: 14px; padding: 2.5rem; transition: all 0.2s; position: relative; overflow: hidden; }
     .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
@@ -79,37 +74,43 @@
     .service-icon { width: 48px; height: 48px; background: rgba(37,99,235,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.5rem; }
     .service-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
     .service-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; }
-    .service-features { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .service-features { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
     .service-features li { font-size: 0.85rem; color: var(--gray); display: flex; align-items: center; gap: 8px; }
     .service-features li::before { content: '→'; color: var(--accent); font-weight: 700; }
+    .service-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: gap 0.2s; }
+    .service-link:hover { gap: 10px; }
     .pricing { background: var(--off-white); }
-    .pricing-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 1rem; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .price-card { background: var(--white); border-radius: 14px; padding: 2.5rem 2rem; border: 1px solid var(--gray-light); transition: all 0.2s; position: relative; }
-    .price-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(15,31,61,0.1); }
-    .price-card.featured { background: var(--navy); border-color: var(--navy); color: var(--white); }
-    .price-card.featured .price-name, .price-card.featured .price-desc, .price-card.featured .price-item { color: rgba(255,255,255,0.75); }
-    .price-card.featured .price-amount { color: var(--white); }
-    .price-card.featured .price-label { color: rgba(255,255,255,0.5); }
+    .pricing-header { text-align: center; margin-bottom: 4rem; }
+    .pricing-header .section-sub { margin: 0 auto; }
+    .pricing-summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .summary-card { background: var(--white); border-radius: 14px; padding: 2.5rem 2rem; border: 1px solid var(--gray-light); transition: all 0.2s; position: relative; display: flex; flex-direction: column; }
+    .summary-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(15,31,61,0.1); }
+    .summary-card.featured { background: var(--navy); border-color: var(--navy); }
     .featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
-    .price-name { font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 0.5rem; }
-    .price-amount { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: var(--navy); line-height: 1; }
-    .price-amount sup { font-size: 1.2rem; vertical-align: super; }
-    .price-label { font-size: 0.8rem; color: var(--gray); margin-bottom: 1.5rem; }
-    .price-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.6; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--gray-light); }
-    .price-card.featured .price-desc { border-bottom-color: rgba(255,255,255,0.1); }
-    .price-items { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2rem; }
-    .price-item { font-size: 0.85rem; color: var(--gray); display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
-    .price-item::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    .price-card.featured .price-item::before { color: var(--gold); }
-    .price-btn { display: block; text-align: center; padding: 0.85rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; border: 2px solid var(--navy); color: var(--navy); background: transparent; }
-    .price-btn:hover { background: var(--navy); color: var(--white); }
-    .price-card.featured .price-btn { background: var(--accent); border-color: var(--accent); color: var(--white); }
-    .price-card.featured .price-btn:hover { background: var(--accent-light); border-color: var(--accent-light); }
-    .learn-more-btn { display: block; text-align: center; padding: 0.6rem; border-radius: 8px; font-weight: 500; font-size: 0.82rem; text-decoration: none; transition: all 0.2s; border: 1px solid var(--gray-light); color: var(--gray); background: transparent; margin-top: 0.6rem; }
-    .learn-more-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .price-card.featured .learn-more-btn { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); }
-    .price-card.featured .learn-more-btn:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
+    .summary-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .summary-name { font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 0.5rem; }
+    .summary-card.featured .summary-name { color: rgba(255,255,255,0.5); }
+    .summary-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--navy); margin-bottom: 0.75rem; }
+    .summary-card.featured h3 { color: var(--white); }
+    .summary-price-range { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 0.4rem; }
+    .summary-card.featured .summary-price-range { color: var(--gold); }
+    .summary-price-label { font-size: 0.8rem; color: var(--gray); margin-bottom: 1.2rem; }
+    .summary-card.featured .summary-price-label { color: rgba(255,255,255,0.45); }
+    .summary-desc { font-size: 0.875rem; color: var(--gray); line-height: 1.6; margin-bottom: 1.5rem; flex: 1; }
+    .summary-card.featured .summary-desc { color: rgba(255,255,255,0.65); }
+    .summary-tiers { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .summary-tier-tag { font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 100px; background: rgba(37,99,235,0.08); color: var(--accent); border: 1px solid rgba(37,99,235,0.15); }
+    .summary-card.featured .summary-tier-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.15); }
+    .summary-tier-tag.enterprise { background: rgba(201,168,76,0.1); color: var(--gold); border-color: rgba(201,168,76,0.3); }
+    .summary-card.featured .summary-tier-tag.enterprise { background: rgba(201,168,76,0.15); color: var(--gold); border-color: rgba(201,168,76,0.3); }
+    .summary-btn { display: block; text-align: center; padding: 0.85rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; border: 2px solid var(--navy); color: var(--navy); background: transparent; margin-bottom: 0.6rem; }
+    .summary-btn:hover { background: var(--navy); color: var(--white); }
+    .summary-card.featured .summary-btn { background: var(--accent); border-color: var(--accent); color: var(--white); }
+    .summary-card.featured .summary-btn:hover { background: var(--accent-light); border-color: var(--accent-light); }
+    .view-plans-btn { display: block; text-align: center; padding: 0.6rem; border-radius: 8px; font-weight: 500; font-size: 0.82rem; text-decoration: none; transition: all 0.2s; border: 1px solid var(--gray-light); color: var(--gray); background: transparent; }
+    .view-plans-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .summary-card.featured .view-plans-btn { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); }
+    .summary-card.featured .view-plans-btn:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
     .pricing-note { text-align: center; margin-top: 2rem; font-size: 0.85rem; color: var(--gray); }
     .cta-section { background: var(--navy); padding: 100px 6%; text-align: center; position: relative; overflow: hidden; }
     .cta-section::before { content: ''; position: absolute; top: -150px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
@@ -135,7 +136,7 @@
       .hero-visual { display: none; }
       .steps { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-summary-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
   </style>
@@ -183,7 +184,6 @@
     </div>
   </section>
 
-  <!-- INDUSTRIES -->
   <section class="industries">
     <div class="industries-inner">
       <div class="industries-label">Industries We Work With</div>
@@ -243,6 +243,7 @@
             <li>List segmentation & cleanup</li>
             <li>Performance tracking & reporting</li>
           </ul>
+          <a href="reactivation.html" class="service-link">View Plans →</a>
         </div>
         <div class="service-card reveal">
           <div class="service-icon">📈</div>
@@ -254,6 +255,7 @@
             <li>Local audience targeting</li>
             <li>Monthly reporting & optimization</li>
           </ul>
+          <a href="ads.html" class="service-link">View Plans →</a>
         </div>
       </div>
     </div>
@@ -262,63 +264,65 @@
   <section class="pricing" id="pricing">
     <div class="section-inner">
       <div class="pricing-header reveal">
-        <div>
-          <div class="section-tag">Transparent Pricing</div>
-          <h2 class="section-title">No Hidden Fees. No Surprises.</h2>
-        </div>
-        <p class="section-sub" style="max-width: 340px;">All plans are month-to-month. Cancel anytime. First campaign is free for new clients.</p>
+        <div class="section-tag">Pricing</div>
+        <h2 class="section-title">Simple, Transparent Pricing</h2>
+        <p class="section-sub">No hidden fees. No long-term contracts. Plans for every size business — including custom Enterprise plans for larger operations.</p>
       </div>
-      <div class="pricing-grid">
+      <div class="pricing-summary-grid">
 
-        <div class="price-card reveal">
-          <div class="price-name">Lead Reactivation</div>
-          <div class="price-amount"><sup>$</sup>397</div>
-          <div class="price-label">/ month — Starter</div>
-          <div class="price-desc">Perfect for businesses with an existing customer list ready to reactivate.</div>
-          <ul class="price-items">
-            <li class="price-item">1 SMS + email campaign/month</li>
-            <li class="price-item">Custom copywriting</li>
-            <li class="price-item">List cleanup & segmentation</li>
-            <li class="price-item">Monthly results report</li>
-          </ul>
-          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Get Started</a>
-          <a href="reactivation.html" class="learn-more-btn">Learn More →</a>
+        <div class="summary-card reveal">
+          <div class="summary-icon">📲</div>
+          <div class="summary-name">Lead Reactivation</div>
+          <h3>Reactivate Your List</h3>
+          <div class="summary-price-range">$199 — $599</div>
+          <div class="summary-price-label">/ month · 4 plans available</div>
+          <p class="summary-desc">Done-for-you SMS & email campaigns that bring your dormant customers back. Plans scale with your contact list size — including custom Enterprise plans.</p>
+          <div class="summary-tiers">
+            <span class="summary-tier-tag">Starter · $199</span>
+            <span class="summary-tier-tag">Growth · $399</span>
+            <span class="summary-tier-tag">Pro · $599</span>
+            <span class="summary-tier-tag enterprise">Enterprise · Custom</span>
+          </div>
+          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="summary-btn">Get Started</a>
+          <a href="reactivation.html" class="view-plans-btn">View All Plans →</a>
         </div>
 
-        <div class="price-card featured reveal">
+        <div class="summary-card featured reveal">
           <div class="featured-badge">Most Popular</div>
-          <div class="price-name">Growth Bundle</div>
-          <div class="price-amount"><sup>$</sup>997</div>
-          <div class="price-label">/ month — Reactivation + Ads</div>
-          <div class="price-desc">The complete package. Reactivate old customers while attracting new ones through paid ads.</div>
-          <ul class="price-items">
-            <li class="price-item">2 reactivation campaigns/month</li>
-            <li class="price-item">Meta or Google Ads management</li>
-            <li class="price-item">Ad creative & copywriting</li>
-            <li class="price-item">Local audience targeting</li>
-            <li class="price-item">Bi-weekly performance reports</li>
-          </ul>
-          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Book a Call</a>
-          <a href="bundle.html" class="learn-more-btn">Learn More →</a>
+          <div class="summary-icon">🚀</div>
+          <div class="summary-name">Growth Bundle</div>
+          <h3>Reactivation + Ads</h3>
+          <div class="summary-price-range">$599 — $999</div>
+          <div class="summary-price-label">/ month · saves $99/mo vs separate</div>
+          <p class="summary-desc">The complete package. Reactivate old customers while paid ads bring in new ones — both running simultaneously. Enterprise plans available.</p>
+          <div class="summary-tiers">
+            <span class="summary-tier-tag">Starter · $599</span>
+            <span class="summary-tier-tag">Growth · $799</span>
+            <span class="summary-tier-tag">Pro · $999</span>
+            <span class="summary-tier-tag enterprise">Enterprise · Custom</span>
+          </div>
+          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="summary-btn">Book a Call</a>
+          <a href="bundle.html" class="view-plans-btn">View All Plans →</a>
         </div>
 
-        <div class="price-card reveal">
-          <div class="price-name">Ads Management</div>
-          <div class="price-amount"><sup>$</sup>497</div>
-          <div class="price-label">/ month + ad spend</div>
-          <div class="price-desc">Full-service paid ads management on Meta and Google for local lead generation.</div>
-          <ul class="price-items">
-            <li class="price-item">Meta & Google campaign setup</li>
-            <li class="price-item">Ad creative & copy</li>
-            <li class="price-item">Audience targeting & optimization</li>
-            <li class="price-item">Monthly reporting</li>
-          </ul>
-          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Get Started</a>
-          <a href="ads.html" class="learn-more-btn">Learn More →</a>
+        <div class="summary-card reveal">
+          <div class="summary-icon">📈</div>
+          <div class="summary-name">Ads Management</div>
+          <h3>Paid Ads That Convert</h3>
+          <div class="summary-price-range">$499</div>
+          <div class="summary-price-label">/ month + your ad spend</div>
+          <p class="summary-desc">Full-service Meta and Google ad management. We handle everything — creative, targeting, optimization, and reporting.</p>
+          <div class="summary-tiers">
+            <span class="summary-tier-tag">Meta Ads</span>
+            <span class="summary-tier-tag">Google Ads</span>
+            <span class="summary-tier-tag">Full Management</span>
+          </div>
+          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="summary-btn">Get Started</a>
+          <a href="ads.html" class="view-plans-btn">View Full Details →</a>
         </div>
 
       </div>
-      <p class="pricing-note reveal">All plans include a free strategy call. First reactivation campaign is on us. Ad spend budget is separate and controlled by you.</p>
+      <p class="pricing-note reveal">All plans are month-to-month. First reactivation campaign is free. Ad spend is separate and controlled by you.</p>
     </div>
   </section>
 
