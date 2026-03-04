@@ -66,6 +66,11 @@
     .step-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; color: rgba(37,99,235,0.1); line-height: 1; margin-bottom: 1rem; }
     .step h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
     .step p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+    .industries { background: var(--navy); padding: 60px 6%; }
+    .industries-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+    .industries-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
+    .industries-list { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .industry-tag { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); padding: 0.5rem 1.2rem; border-radius: 100px; font-size: 0.875rem; font-weight: 500; }
     .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 4rem; }
     .service-card { border: 1px solid var(--gray-light); border-radius: 14px; padding: 2.5rem; transition: all 0.2s; position: relative; overflow: hidden; }
     .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
@@ -143,6 +148,7 @@
       <li><a href="#how">How It Works</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="nav-cta">Book a Call</a></li>
     </ul>
   </nav>
@@ -150,9 +156,9 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-badge">For HVAC & Trades Companies</div>
+        <div class="hero-badge">For Any Local Business</div>
         <h1>Turn Dead Leads Into <em>Booked Jobs</em></h1>
-        <p class="hero-sub">We reactivate your dormant customer list and run targeted ad campaigns to fill your calendar — before your competitors do.</p>
+        <p class="hero-sub">We reactivate your dormant customer list and run targeted ad campaigns to fill your calendar — so you can focus on doing the work, not finding it.</p>
         <div class="hero-actions">
           <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="btn-primary">Book a Free Strategy Call</a>
           <a href="#services" class="btn-secondary">See Our Services</a>
@@ -177,6 +183,21 @@
     </div>
   </section>
 
+  <!-- INDUSTRIES -->
+  <section class="industries">
+    <div class="industries-inner">
+      <div class="industries-label">Industries We Work With</div>
+      <div class="industries-list">
+        <span class="industry-tag">HVAC</span>
+        <span class="industry-tag">Plumbing</span>
+        <span class="industry-tag">Electrical</span>
+        <span class="industry-tag">Roofing</span>
+        <span class="industry-tag">Landscaping</span>
+        <span class="industry-tag">& Any Local Service Business</span>
+      </div>
+    </div>
+  </section>
+
   <section class="how" id="how">
     <div class="section-inner">
       <div class="reveal">
@@ -193,12 +214,12 @@
         <div class="step reveal">
           <div class="step-num">02</div>
           <h3>We Build & Launch the Campaign</h3>
-          <p>We craft targeted SMS and email campaigns with seasonal offers designed to bring those customers back in. No templates — everything is custom.</p>
+          <p>We craft targeted SMS, email, and ad campaigns designed to bring customers back and attract new ones. No templates — everything is custom to your business.</p>
         </div>
         <div class="step reveal">
           <div class="step-num">03</div>
           <h3>You Get Booked</h3>
-          <p>Leads come back, calls get booked, jobs get scheduled. We track results and optimize for every campaign we run.</p>
+          <p>Leads come back, calls get booked, jobs get scheduled. We track results and optimize every campaign we run.</p>
         </div>
       </div>
     </div>
@@ -209,7 +230,7 @@
       <div class="reveal">
         <div class="section-tag">What We Offer</div>
         <h2 class="section-title">Two Ways We Grow Your Business</h2>
-        <p class="section-sub">Pick one or combine them for maximum impact heading into peak season.</p>
+        <p class="section-sub">Pick one or combine them for maximum impact. Both are fully done for you.</p>
       </div>
       <div class="services-grid">
         <div class="service-card reveal">
@@ -226,7 +247,7 @@
         <div class="service-card reveal">
           <div class="service-icon">📈</div>
           <h3>Ads Management</h3>
-          <p>We run targeted Meta and Google ad campaigns that put your business in front of local homeowners actively searching for HVAC and trades services in your area.</p>
+          <p>We run targeted Meta and Google ad campaigns that put your business in front of local customers actively searching for your services — done for you from start to finish.</p>
           <ul class="service-features">
             <li>Meta & Google campaign setup</li>
             <li>Ad creative & copywriting</li>
@@ -253,7 +274,7 @@
           <div class="price-name">Lead Reactivation</div>
           <div class="price-amount"><sup>$</sup>397</div>
           <div class="price-label">/ month — Starter</div>
-          <div class="price-desc">Perfect for companies with an existing customer list ready to reactivate.</div>
+          <div class="price-desc">Perfect for businesses with an existing customer list ready to reactivate.</div>
           <ul class="price-items">
             <li class="price-item">1 SMS + email campaign/month</li>
             <li class="price-item">Custom copywriting</li>
@@ -305,9 +326,9 @@
     <div class="section-inner">
       <div class="section-tag" style="color: rgba(255,255,255,0.5);">Get Started</div>
       <h2 class="section-title">Ready to Fill Your Calendar?</h2>
-      <p class="section-sub">Book a free 15-minute call. We'll look at your customer list, talk through your goals, and tell you exactly what we'd do — no pressure, no pitch.</p>
+      <p class="section-sub">Book a free 15-minute call. We'll look at your business, talk through your goals, and tell you exactly what we'd do — no pressure, no pitch.</p>
       <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="btn-primary">Book a Free Strategy Call</a>
-      <div class="cta-availability">Currently accepting 1 new client this month</div>
+      <div class="cta-availability">Currently accepting new clients</div>
     </div>
   </section>
 
