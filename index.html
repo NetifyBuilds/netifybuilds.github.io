@@ -1,1 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Netify — Lead Reactivation & Ads Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f1f3d; --navy-mid: #1a3260; --navy-light: #2a4a8a;
+      --accent: #2563eb; --accent-light: #3b82f6; --gold: #c9a84c;
+      --white: #ffffff; --off-white: #f8f9fc; --gray: #64748b;
+      --gray-light: #e2e8f0; --text: #0f172a;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-light); padding: 0 6%;
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--navy); letter-spacing: -0.5px; text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--navy); color: var(--white) !important; padding: 0.6rem 1.4rem; border-radius: 6px; font-weight: 600 !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--accent) !important; }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 6% 80px; background: var(--white); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%); border-radius: 50%; }
+    .hero::after { content: ''; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(15,31,61,0.04) 0%, transparent 70%); border-radius: 50%; }
+    .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; width: 100%; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.2); color: var(--accent); font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.1s forwards; }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 900; line-height: 1.1; color: var(--navy); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub { font-size: 1.1rem; color: var(--gray); line-height: 1.7; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.6s 0.3s forwards; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s 0.4s forwards; }
+    .btn-primary { background: var(--navy); color: var(--white); padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; border: 2px solid var(--navy); }
+    .btn-primary:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.25); }
+    .btn-secondary { background: transparent; color: var(--navy); padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 2px solid var(--gray-light); transition: all 0.2s; }
+    .btn-secondary:hover { border-color: var(--navy); transform: translateY(-2px); }
+    .hero-visual { opacity: 0; animation: fadeLeft 0.7s 0.5s forwards; }
+    .hero-card { background: var(--navy); border-radius: 16px; padding: 2.5rem; color: var(--white); position: relative; overflow: hidden; }
+    .hero-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(37,99,235,0.3) 0%, transparent 70%); border-radius: 50%; }
+    .hero-card-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+    .hero-stat { margin-bottom: 1.5rem; }
+    .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--white); line-height: 1; }
+    .hero-stat-num span { color: var(--gold); }
+    .hero-stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+    .hero-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 1.5rem 0; }
+    .hero-features { display: flex; flex-direction: column; gap: 0.8rem; }
+    .hero-feature { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+    .hero-feature::before { content: '✓'; width: 20px; height: 20px; background: rgba(37,99,235,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--accent-light); flex-shrink: 0; text-align: center; line-height: 20px; }
+    section { padding: 100px 6%; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 1.2rem; }
+    .section-sub { font-size: 1.05rem; color: var(--gray); line-height: 1.7; max-width: 560px; }
+    .how { background: var(--off-white); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+    .step { background: var(--white); border-radius: 12px; padding: 2.5rem 2rem; border: 1px solid var(--gray-light); transition: transform 0.2s, box-shadow 0.2s; }
+    .step:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15,31,61,0.08); }
+    .step-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; color: rgba(37,99,235,0.1); line-height: 1; margin-bottom: 1rem; }
+    .step h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
+    .step p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 4rem; }
+    .service-card { border: 1px solid var(--gray-light); border-radius: 14px; padding: 2.5rem; transition: all 0.2s; position: relative; overflow: hidden; }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { box-shadow: 0 12px 40px rgba(15,31,61,0.1); transform: translateY(-3px); }
+    .service-icon { width: 48px; height: 48px; background: rgba(37,99,235,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.5rem; }
+    .service-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
+    .service-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; }
+    .service-features { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .service-features li { font-size: 0.85rem; color: var(--gray); display: flex; align-items: center; gap: 8px; }
+    .service-features li::before { content: '→'; color: var(--accent); font-weight: 700; }
+    .pricing { background: var(--off-white); }
+    .pricing-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 1rem; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .price-card { background: var(--white); border-radius: 14px; padding: 2.5rem 2rem; border: 1px solid var(--gray-light); transition: all 0.2s; position: relative; }
+    .price-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(15,31,61,0.1); }
+    .price-card.featured { background: var(--navy); border-color: var(--navy); color: var(--white); }
+    .price-card.featured .price-name, .price-card.featured .price-desc, .price-card.featured .price-item { color: rgba(255,255,255,0.75); }
+    .price-card.featured .price-amount { color: var(--white); }
+    .price-card.featured .price-label { color: rgba(255,255,255,0.5); }
+    .featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
+    .price-name { font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 0.5rem; }
+    .price-amount { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: var(--navy); line-height: 1; }
+    .price-amount sup { font-size: 1.2rem; vertical-align: super; }
+    .price-label { font-size: 0.8rem; color: var(--gray); margin-bottom: 1.5rem; }
+    .price-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.6; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--gray-light); }
+    .price-card.featured .price-desc { border-bottom-color: rgba(255,255,255,0.1); }
+    .price-items { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2rem; }
+    .price-item { font-size: 0.85rem; color: var(--gray); display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+    .price-item::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .price-card.featured .price-item::before { color: var(--gold); }
+    .price-btn { display: block; text-align: center; padding: 0.85rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; border: 2px solid var(--navy); color: var(--navy); background: transparent; }
+    .price-btn:hover { background: var(--navy); color: var(--white); }
+    .price-card.featured .price-btn { background: var(--accent); border-color: var(--accent); color: var(--white); }
+    .price-card.featured .price-btn:hover { background: var(--accent-light); border-color: var(--accent-light); }
+    .pricing-note { text-align: center; margin-top: 2rem; font-size: 0.85rem; color: var(--gray); }
+    .cta-section { background: var(--navy); padding: 100px 6%; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; top: -150px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .cta-section .section-title { color: var(--white); }
+    .cta-section .section-sub { color: rgba(255,255,255,0.65); margin: 0 auto 2.5rem; }
+    .cta-section .btn-primary { background: var(--white); color: var(--navy); border-color: var(--white); font-size: 1rem; padding: 1rem 2.5rem; }
+    .cta-section .btn-primary:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+    .cta-availability { margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .cta-availability::before { content: ''; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
+    footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 2.5rem 6%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 900; color: var(--white); text-decoration: none; }
+    .footer-logo span { color: var(--accent-light); }
+    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    footer a:hover { color: var(--white); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeLeft { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-visual { display: none; }
+      .steps { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">Netify<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="nav-cta">Book a Call</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">For HVAC & Trades Companies</div>
+        <h1>Turn Dead Leads Into <em>Booked Jobs</em></h1>
+        <p class="hero-sub">We reactivate your dormant customer list and run targeted ad campaigns to fill your calendar — before your competitors do.</p>
+        <div class="hero-actions">
+          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="btn-primary">Book a Free Strategy Call</a>
+          <a href="#services" class="btn-secondary">See Our Services</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-label">What We Deliver</div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">3<span>x</span></div>
+            <div class="hero-stat-label">Average ROI on reactivation campaigns</div>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="hero-features">
+            <div class="hero-feature">SMS & Email reactivation campaigns</div>
+            <div class="hero-feature">Meta & Google Ads management</div>
+            <div class="hero-feature">Done-for-you — zero effort on your end</div>
+            <div class="hero-feature">First campaign free for new clients</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-tag">The Process</div>
+        <h2 class="section-title">Simple. Fast. Effective.</h2>
+        <p class="section-sub">We handle everything. You just take the calls.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h3>Share Your Customer List</h3>
+          <p>Give us your existing customer database — even if it's old and inactive. Those are the most valuable leads you already have.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <h3>We Build & Launch the Campaign</h3>
+          <p>We craft targeted SMS and email campaigns with seasonal offers designed to bring those customers back in. No templates — everything is custom.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <h3>You Get Booked</h3>
+          <p>Leads come back, calls get booked, jobs get scheduled. We track results and optimize for every campaign we run.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-tag">What We Offer</div>
+        <h2 class="section-title">Two Ways We Grow Your Business</h2>
+        <p class="section-sub">Pick one or combine them for maximum impact heading into peak season.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">📲</div>
+          <h3>Lead Reactivation</h3>
+          <p>Your old customers already trust you — they just need a reason to call again. We run done-for-you SMS and email campaigns that bring them back before your competitors reach them first.</p>
+          <ul class="service-features">
+            <li>Custom SMS & email sequences</li>
+            <li>Seasonal offer copywriting</li>
+            <li>List segmentation & cleanup</li>
+            <li>Performance tracking & reporting</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">📈</div>
+          <h3>Ads Management</h3>
+          <p>We run targeted Meta and Google ad campaigns that put your business in front of local homeowners actively searching for HVAC and trades services in your area.</p>
+          <ul class="service-features">
+            <li>Meta & Google campaign setup</li>
+            <li>Ad creative & copywriting</li>
+            <li>Local audience targeting</li>
+            <li>Monthly reporting & optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="section-inner">
+      <div class="pricing-header reveal">
+        <div>
+          <div class="section-tag">Transparent Pricing</div>
+          <h2 class="section-title">No Hidden Fees. No Surprises.</h2>
+        </div>
+        <p class="section-sub" style="max-width: 340px;">All plans are month-to-month. Cancel anytime. First campaign is free for new clients.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card reveal">
+          <div class="price-name">Lead Reactivation</div>
+          <div class="price-amount"><sup>$</sup>397</div>
+          <div class="price-label">/ month — Starter</div>
+          <div class="price-desc">Perfect for companies with an existing customer list ready to reactivate.</div>
+          <ul class="price-items">
+            <li class="price-item">1 SMS + email campaign/month</li>
+            <li class="price-item">Custom copywriting</li>
+            <li class="price-item">List cleanup & segmentation</li>
+            <li class="price-item">Monthly results report</li>
+          </ul>
+          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Get Started</a>
+        </div>
+        <div class="price-card featured reveal">
+          <div class="featured-badge">Most Popular</div>
+          <div class="price-name">Growth Bundle</div>
+          <div class="price-amount"><sup>$</sup>997</div>
+          <div class="price-label">/ month — Reactivation + Ads</div>
+          <div class="price-desc">The complete package. Reactivate old customers while attracting new ones through paid ads.</div>
+          <ul class="price-items">
+            <li class="price-item">2 reactivation campaigns/month</li>
+            <li class="price-item">Meta or Google Ads management</li>
+            <li class="price-item">Ad creative & copywriting</li>
+            <li class="price-item">Local audience targeting</li>
+            <li class="price-item">Bi-weekly performance reports</li>
+          </ul>
+          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Book a Call</a>
+        </div>
+        <div class="price-card reveal">
+          <div class="price-name">Ads Management</div>
+          <div class="price-amount"><sup>$</sup>497</div>
+          <div class="price-label">/ month + ad spend</div>
+          <div class="price-desc">Full-service paid ads management on Meta and Google for local lead generation.</div>
+          <ul class="price-items">
+            <li class="price-item">Meta & Google campaign setup</li>
+            <li class="price-item">Ad creative & copy</li>
+            <li class="price-item">Audience targeting & optimization</li>
+            <li class="price-item">Monthly reporting</li>
+          </ul>
+          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Get Started</a>
+        </div>
+      </div>
+      <p class="pricing-note reveal">All plans include a free strategy call. First reactivation campaign is on us. Ad spend budget is separate and controlled by you.</p>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="section-inner">
+      <div class="section-tag" style="color: rgba(255,255,255,0.5);">Get Started</div>
+      <h2 class="section-title">Ready to Fill Your Calendar?</h2>
+      <p class="section-sub">Book a free 15-minute call. We'll look at your customer list, talk through your goals, and tell you exactly what we'd do — no pressure, no pitch.</p>
+      <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="btn-primary">Book a Free Strategy Call</a>
+      <div class="cta-availability">Currently accepting 1 new client this month</div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#" class="footer-logo">Netify<span>.</span></a>
+    <p>© 2026 Netify. All rights reserved.</p>
+    <a href="mailto:contact@netifybuilds.com">contact@netifybuilds.com</a>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
 
