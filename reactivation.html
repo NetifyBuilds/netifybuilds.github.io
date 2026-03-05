@@ -19,7 +19,6 @@
     .back-btn { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--gray); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     .back-btn:hover { color: var(--navy); }
     .back-btn::before { content: '←'; font-size: 1rem; }
-
     .hero { padding: 140px 6% 80px; background: var(--navy); position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.25) 0%, transparent 70%); border-radius: 50%; }
     .hero-inner { max-width: 800px; margin: 0 auto; }
@@ -27,14 +26,11 @@
     .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; }
     .hero h1 em { font-style: italic; color: var(--gold); }
     .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.7); line-height: 1.7; max-width: 600px; opacity: 0; animation: fadeUp 0.6s 0.3s forwards; }
-
     section { padding: 80px 6%; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
     .section-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 1rem; }
     .section-sub { font-size: 1rem; color: var(--gray); line-height: 1.7; max-width: 600px; margin-bottom: 3rem; }
-
-    /* PRICING GRID */
     .pricing { background: var(--off-white); }
     .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
     .price-card { background: var(--white); border-radius: 14px; padding: 2rem 1.5rem; border: 1px solid var(--gray-light); transition: all 0.2s; position: relative; display: flex; flex-direction: column; }
@@ -70,8 +66,6 @@
     .price-card.featured .price-btn:hover { background: var(--accent-light); border-color: var(--accent-light); }
     .price-card.enterprise .price-btn { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 700; }
     .price-card.enterprise .price-btn:hover { background: #e0bc5a; border-color: #e0bc5a; transform: translateY(-2px); }
-
-    /* PROCESS */
     .process { background: var(--white); }
     .process-steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
     .process-step { background: var(--off-white); border-radius: 12px; padding: 2rem; border: 1px solid var(--gray-light); display: flex; gap: 1.5rem; align-items: flex-start; transition: transform 0.2s, box-shadow 0.2s; }
@@ -79,16 +73,12 @@
     .step-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: rgba(37,99,235,0.15); line-height: 1; flex-shrink: 0; width: 40px; }
     .step-content h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
     .step-content p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
-
-    /* INCLUDED */
     .included { background: var(--off-white); }
     .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
     .included-item { background: var(--white); border-radius: 10px; padding: 1.5rem; border: 1px solid var(--gray-light); }
     .included-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
     .included-item p { font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
     .included-icon { font-size: 1.3rem; margin-bottom: 0.75rem; }
-
-    /* TIMELINE */
     .timeline { background: var(--white); }
     .timeline-items { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; position: relative; }
     .timeline-items::before { content: ''; position: absolute; left: 16px; top: 0; bottom: 0; width: 2px; background: var(--gray-light); }
@@ -98,8 +88,6 @@
     .timeline-content .time { font-size: 0.75rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.3rem; }
     .timeline-content h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
     .timeline-content p { font-size: 0.875rem; color: var(--gray); line-height: 1.6; }
-
-    /* FAQ */
     .faq { background: var(--off-white); }
     .faq-items { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
     .faq-item { border: 1px solid var(--gray-light); border-radius: 10px; overflow: hidden; background: var(--white); }
@@ -110,25 +98,21 @@
     .faq-a { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s; }
     .faq-item.open .faq-a { max-height: 200px; padding: 0 1.5rem 1.25rem; }
     .faq-a p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
-
     .bottom-cta { background: var(--navy); text-align: center; padding: 80px 6%; position: relative; overflow: hidden; }
     .bottom-cta::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
     .bottom-cta h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: var(--white); margin-bottom: 1rem; }
     .bottom-cta p { color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.7; max-width: 500px; margin: 0 auto 2rem; }
     .btn-white { background: var(--white); color: var(--navy); padding: 0.9rem 2.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; border: 2px solid var(--white); display: inline-block; }
     .btn-white:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-2px); }
-
     footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 2rem 6%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: var(--white); text-decoration: none; }
     .footer-logo span { color: var(--accent-light); }
     footer p { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
     footer a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; }
     footer a:hover { color: var(--white); }
-
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-
     @media (max-width: 1000px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 700px) { .pricing-grid { grid-template-columns: 1fr; } .included-grid { grid-template-columns: 1fr; } }
   </style>
@@ -148,7 +132,6 @@
     </div>
   </section>
 
-  <!-- PRICING -->
   <section class="pricing">
     <div class="section-inner">
       <div class="reveal">
@@ -172,7 +155,7 @@
             <li class="price-item">List cleanup & segmentation</li>
             <li class="price-item">Monthly results report</li>
           </ul>
-          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Get Started</a>
+          <a href="checkout.html?plan=reactivation-starter" class="price-btn">Get Started</a>
         </div>
 
         <div class="price-card featured reveal">
@@ -191,7 +174,7 @@
             <li class="price-item">Monthly results report</li>
             <li class="price-item">Seasonal offer strategy</li>
           </ul>
-          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Get Started</a>
+          <a href="checkout.html?plan=reactivation-growth" class="price-btn">Get Started</a>
         </div>
 
         <div class="price-card reveal">
@@ -210,7 +193,7 @@
             <li class="price-item">Seasonal offer strategy</li>
             <li class="price-item">Priority support</li>
           </ul>
-          <a href="https://calendly.com/admin-netifybuilds/30min" target="_blank" class="price-btn">Get Started</a>
+          <a href="checkout.html?plan=reactivation-pro" class="price-btn">Get Started</a>
         </div>
 
         <div class="price-card enterprise reveal">
@@ -237,7 +220,6 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
   <section class="process">
     <div class="section-inner">
       <div class="reveal">
@@ -285,7 +267,6 @@
     </div>
   </section>
 
-  <!-- INCLUDED -->
   <section class="included">
     <div class="section-inner">
       <div class="reveal">
@@ -328,7 +309,6 @@
     </div>
   </section>
 
-  <!-- TIMELINE -->
   <section class="timeline">
     <div class="section-inner">
       <div class="reveal">
@@ -381,7 +361,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section class="faq">
     <div class="section-inner">
       <div class="reveal">
