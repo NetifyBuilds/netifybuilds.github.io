@@ -16,8 +16,9 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-light); padding: 0 6%; display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--navy); letter-spacing: -0.5px; text-decoration: none; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--navy); letter-spacing: -0.5px; text-decoration: none; display: flex; align-items: center; gap: 9px; }
     .nav-logo span { color: var(--accent); }
+    .nav-logo-icon { width: 36px; height: 36px; flex-shrink: 0; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
@@ -144,7 +145,10 @@
 <body>
 
   <nav>
-    <a href="#" class="nav-logo">Netify<span>.</span></a>
+    <a href="#" class="nav-logo">
+      <img src="favicon.png" class="nav-logo-icon" alt="Netify logo" />
+      Netify<span>.</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#how">How It Works</a></li>
       <li><a href="#services">Services</a></li>
